@@ -24,8 +24,6 @@ const Testimonials = () => {
         }
     `)
 
-    console.log(data)
-
     return (
         <TestimonialsContainer>
             <TopLine>
@@ -72,9 +70,9 @@ const Testimonials = () => {
                     {data.allFile.edges.map((image, key) => (
                         <Images 
                             key={key} 
-                            fluid={image.node.childImageSharp.fluid} />
-                    ))}
-                    <Images />
+                            fluid={image.node.childImageSharp.fluid} 
+                        />
+                    ))}                    
                 </ColumnTwo>
             </ContentWrapper>
         </TestimonialsContainer>
@@ -84,7 +82,6 @@ const Testimonials = () => {
 export default Testimonials
 
 const TestimonialsContainer = styled.div`
-min-height: 100vh;
     width: 100%;
     background: #FCFCFC;
     color: #000;

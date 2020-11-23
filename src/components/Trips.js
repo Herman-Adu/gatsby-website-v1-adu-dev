@@ -26,7 +26,6 @@ const Trips = ({ heading }) => {
             }
         }
     `)    
-    //console.log(data)
     
     const getTrips = (data) => {
         // console.log(data)
