@@ -1,0 +1,26 @@
+[
+    {
+        "img": "../assets/images/travel-1.jpg",
+        "alt": "Waterfull Wonders",
+        "name": "Waterfull Wonders",
+        "button": "View Destination"
+    },
+    {
+        "img": "../assets/images/travel-2.jpg",
+        "alt": "Cliffs of Dover",
+        "name": "Cliffs of Dover",
+        "button": "View Destination"
+    },
+    {
+        "img": "../assets/images/travel-3.jpg",
+        "alt": "The Eiffel Tower",
+        "name": "The Eiffel Tower",
+        "button": "View Destination"
+    },
+    {
+        "img": "../assets/images/travel-4.jpg",
+        "alt": "Diving Deep Waters",
+        "name": "Diving Deep Waters",
+        "button": "View Destination"
+    }
+]
