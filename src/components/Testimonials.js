@@ -1,11 +1,17 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { IoMdCheckmarkCircleOutline } from "react-icons/io"
 import { FaRegLightbulb } from "react-icons/fa"
 import { useStaticQuery, graphql } from "gatsby"
+import Aos from "aos"
+import "aos/dist/aos.css"
 
 const Testimonials = () => {
+    useEffect(() => {
+        Aos.init({})
+    }, [])
+    
     const data = useStaticQuery(graphql`
         query {
             allFile(
@@ -26,23 +32,34 @@ const Testimonials = () => {
 
     return (
         <TestimonialsContainer>
-            <TopLine>
+            <TopLine
+                data-aos="fade-right"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+            >
                 Testimonials
             </TopLine>
-            <Description>
+            <Description
+                data-aos="fade-right"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+            >
                 what people are saying
             </Description>
             <ContentWrapper>
                 <ColumOne>
-                    <Testimonial>
+                    <Testimonial
+                        data-aos="fade-right"
+                        data-aos-delay="150"
+                        data-aos-duration="1200"
+                    >
                         <IoMdCheckmarkCircleOutline
                             css={`
-                                    color: #3FFFA8;
-                                    font-size: 2rem;
-                                    margin-bottom: 1rem;
-                                
-                                `}
-                             />
+                                color: #3FFFA8;
+                                font-size: 2rem;
+                                margin-bottom: 1rem;                            
+                            `}
+                        />
                         <h3>Sean Michaels</h3>
                         <p>The greatest experience of my life! it was so much fun absailng down the front of waterfull wonders.
                             I always felt safe and the staff were well trained and new what they were doing
@@ -52,7 +69,11 @@ const Testimonials = () => {
                             Loved the accomodation
                         </p>
                     </Testimonial>
-                    <Testimonial>
+                    <Testimonial
+                        data-aos="fade-right"
+                        data-aos-delay="200"
+                        data-aos-duration="1200"
+                    >
                         <FaRegLightbulb 
                             css={`
                                     color: #3FFFA8;
@@ -66,7 +87,11 @@ const Testimonials = () => {
                         </p>
                     </Testimonial>
                 </ColumOne>
-                <ColumnTwo>
+                <ColumnTwo
+                    data-aos="fade-down"
+                    data-aos-delay="200"
+                    data-aos-duration="1200"
+                >
                     {data.allFile.edges.map((image, key) => (
                         <Images 
                             key={key} 

@@ -1,15 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from "styled-components"
 import {StatsData} from "../data/StatsData"
+import Aos from "aos"
+import "aos/dist/aos.css"
 
 const Stats = () => {
+    useEffect(() => {
+        Aos.init({})
+    }, [])
+
     return (
          <StatsContainer>
-            <StatsHeading> Why choose us?</StatsHeading>
+            <StatsHeading
+                data-aos="fade-right"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+            >
+                Why choose us?
+            </StatsHeading>
             <StatsWrapper>
                 {StatsData.map((item, index) => {
                     return (
-                        <StatsBox key={index}>
+                        <StatsBox 
+                            key={index}
+                            data-aos="fade-right"
+                            data-aos-delay="150"
+                            data-aos-duration="1000"
+                        >
                             <Icon>{item.icon}</Icon>
                             <Title>{item.title}</Title>
                             <Description>{item.desc}</Description>
@@ -70,7 +87,4 @@ const Title = styled.p`
     margin-bottom: 0.5 rem;
 `
 
-/* Add sytles to the stats text if you want */
-const Description = styled.p`
-    /* font-size: 1.5rem; */
-`
+const Description = styled.p``

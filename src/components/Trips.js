@@ -1,11 +1,17 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image';
 import { Button } from "../components/Button"
 import { ImLocation } from "react-icons/im"
+import Aos from "aos"
+import "aos/dist/aos.css"
 
 const Trips = ({ heading }) => {
+    useEffect(() => {
+        Aos.init({})
+    }, [])
+
     const data = useStaticQuery(graphql`
         query TripsQuery {
             allTripsJson {
@@ -32,7 +38,12 @@ const Trips = ({ heading }) => {
         const tripsArray = []
         data.allTripsJson.edges.forEach((item, index) => {   
             tripsArray.push(
-                <ProductCard key={index}>
+                <ProductCard 
+                    key={index}
+                    data-aos="fade-down"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                >
                     <ProductImg 
                         alt={item.node.alt}
                         fluid={item.node.img.childImageSharp.fluid}
