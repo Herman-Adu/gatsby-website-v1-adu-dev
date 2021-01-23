@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
@@ -6,8 +6,19 @@ import { menuData } from "../data/MenuData";
 import { Button } from "./Button";
 
 const Header = ({toggle}) => {
+  const [navbar, setNavBar] = useState(false);
+
+  useEffect(() => {
+    if (window.location.pathname) {
+      setNavBar(window.location.pathname)
+    }
+
+    console.log(window.location.pathname)
+  }, [])
+
+
   return (
-    <Nav>
+    <Nav navbar={navbar}>
     <NavLink to="/">EXPLORIX</NavLink>
     <Bars onClick={toggle} />
     <NavMenu>
@@ -27,7 +38,7 @@ const Header = ({toggle}) => {
 export default Header;
 
 const Nav = styled.nav`
-  background: transparent;
+  background: ${({ navbar }) => (navbar !== "/" ? "#141414" : "transparent")};;
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -40,9 +51,9 @@ const NavLink = styled(Link)`
   color: #FFF;
   display: flex;
   align-items: center;
-  text-decoration:n none;
+  text-decoration: none;
   padding: 0 1rem;
-  height: 100%auto;
+  height: 100%;
   cursor: pointer;
 `
 const Bars = styled(FaBars)`
