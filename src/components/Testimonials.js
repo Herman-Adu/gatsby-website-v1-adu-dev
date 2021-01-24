@@ -65,7 +65,7 @@ const Testimonials = () => {
             />
             <h3>Sean Michaels</h3>
             <div>
-                <p>
+            <p>
               {" "}
               "The greatest experience of my life! It was so much fun exploring
               the mountains and they made it super easy to book my trip and

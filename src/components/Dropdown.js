@@ -5,10 +5,14 @@ import { Link } from 'gatsby'
 import { Button } from './Button'
 import { FaTimes } from 'react-icons/fa'
 
-
 const Dropdown = ({ isOpen, toggle}) => {
     return (
         <DropdownContainer isOpen={isOpen} onClick={toggle}>
+            <DropdownIcon>
+                <IconTitle to="/">
+                    EXPLORIX
+                </IconTitle>                
+            </DropdownIcon>
             <Icon onClick={toggle}>
                 <CloseIcon />
             </Icon>
@@ -20,8 +24,7 @@ const Dropdown = ({ isOpen, toggle}) => {
                                 {item.title}
                             </DropdownLink>
                         )
-
-                    }) }
+                    })}
                 </DropdownMenu>
                 <BtnWrap>
                     <Button primary="true" round="true" to="/trips">
@@ -47,7 +50,25 @@ const DropdownContainer = styled.aside`
     left: 0;
     transition: 0.3s ease-in-out;
     opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
-    top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+    top: ${({ isOpen }) => (isOpen ? "0" : "-100%")}; 
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+`
+
+const DropdownIcon = styled.div`
+    background: transparent;
+    color: #FFF;
+    position: absolute;   
+    top:1.95rem;
+    left: 1rem;   
+    text-decoration: none;
+    cursor: pointer; 
+`
+
+const IconTitle = styled.div`
+    color: #fff;
 `
 
 const Icon = styled.div`

@@ -1,44 +1,45 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
-import { FaBars } from "react-icons/fa";
-import { menuData } from "../data/MenuData";
-import { Button } from "./Button";
+import React, { useState, useEffect } from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
+import { FaBars } from "react-icons/fa"
+import { menuData } from "../data/MenuData"
+import { Button } from "./Button"
 
-const Header = ({toggle}) => {
-  const [navbar, setNavBar] = useState(false);
+const Header = ({ toggle }) => {
+  const [navbar, setNavbar] = useState(false)
 
   useEffect(() => {
     if (window.location.pathname) {
-      setNavBar(window.location.pathname)
+      setNavbar(window.location.pathname)
     }
 
     console.log(window.location.pathname)
   }, [])
 
-
   return (
     <Nav navbar={navbar}>
-    <NavLink to="/">EXPLORIX</NavLink>
-    <Bars onClick={toggle} />
-    <NavMenu>
-      {menuData.map((item, index) => (
-        <NavLink to={item.link} key={index}>
-          {item.title}
-        </NavLink>
-      ))}
-    </NavMenu>
-    <NavBtn>
-        <Button primary="true" round="true" to="/trips">Book a Flight</Button>
-    </NavBtn>
+      <NavLink to="/">EXPLORIX</NavLink>
+      <Bars onClick={toggle} />
+      <NavMenu>
+        {menuData.map((item, index) => (
+          <NavLink to={item.link} key={index}>
+            {item.title}
+          </NavLink>
+        ))}
+      </NavMenu>
+      <NavBtn>
+        <Button primary="true" round="true" to="/trips">
+          Book a Flight
+        </Button>
+      </NavBtn>
     </Nav>
   )
 }
 
-export default Header;
+export default Header
 
 const Nav = styled.nav`
-  background: ${({ navbar }) => (navbar !== "/" ? "#141414" : "transparent")};;
+  background: ${({ navbar }) => (navbar !== "/" ? "#141414" : "transparent")};
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -48,7 +49,7 @@ const Nav = styled.nav`
 `
 
 const NavLink = styled(Link)`
-  color: #FFF;
+  color: #fff;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -56,9 +57,10 @@ const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
 `
+
 const Bars = styled(FaBars)`
   display: none;
-  color: #FFF;
+  color: #fff;
 
   @media screen and (max-width: 768px) {
     display: block;
@@ -86,10 +88,7 @@ const NavBtn = styled.div`
   align-items: center;
   margin-right: 24px;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `
-
-
-  
